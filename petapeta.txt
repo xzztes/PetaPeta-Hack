@@ -12,6 +12,16 @@ end
 local plr = game.Players.LocalPlayer
 local char = plr.Character or plr.CharacterAdded:Wait()
 
+task.spawn(function()
+for k,v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Highlight") then
+        if v.Parent.Name == "EnemyModel" then
+            continue
+        end
+        v:Destroy()
+    end
+    end
+end)
 local zeniamount = plr.PlayerGui.GameUI.ZeniUI.amount
 local all_zenis = {}
 function getAllZeni()
@@ -32,7 +42,7 @@ function getAllZeni()
                      if zeniamount.Value >= 150 then
                          break
                      end
-                     wait(0.1)
+                     wait()
                  end
              end
          end
