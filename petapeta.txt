@@ -40,10 +40,6 @@ end
 
 
 
-task.spawn(function()
-openallshelf()
-getAllZeni()
-end)
 function addHighlight(parent, txt)
 
     local billboard = Instance.new("BillboardGui")
@@ -88,6 +84,11 @@ if obj:FindFirstChild("EnemyModel") then
     local highlight = obj:FindFirstChild("EnemyModel").Highlight
     highlight.Enabled = true
 end
+end)
+
+task.spawn(function()
+openallshelf()
+getAllZeni()
 end)
 
 task.spawn(function()
