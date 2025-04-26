@@ -114,7 +114,7 @@ print("gemec")
          h.DepthMode = "AlwaysOnTop"
             end
            elseif string.find(v.Name,"Zeni") then
-         addHighlight(v,v.Name)
+         --addHighlight(v,v.Name)
         
        end
     end
