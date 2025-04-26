@@ -49,7 +49,7 @@ end)
 
 task.spawn(function()
 while wait() do
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 35 end
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 30 end
 end)
 task.spawn(function()
 print("gemec")
