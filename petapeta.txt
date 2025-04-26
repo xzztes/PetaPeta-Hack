@@ -7,7 +7,7 @@ function addHighlight(parent, txt)
     billboard.Name = "HighlightBillboard"
     billboard.Adornee = parent
     billboard.Parent = parent
-    billboard.Size = UDim2.new(0.05, 0, 0.05, 0) 
+    billboard.Size = UDim2.new(0.1, 0, 0.1, 0) 
     billboard.StudsOffset = Vector3.new(0, 0, 0) 
     billboard.AlwaysOnTop = true
     billboard.MaxDistance = math.huge 
@@ -15,7 +15,7 @@ function addHighlight(parent, txt)
 
     local label = Instance.new("TextLabel")
     label.Parent = billboard
-    label.Size = UDim2.new(0.9, 0, 0.9, 0)
+    label.Size = UDim2.new(1, 0, 1, 0)
     label.BackgroundTransparency = 1
     label.Text = txt or "Label"
     if parent.Name == "Key" then
