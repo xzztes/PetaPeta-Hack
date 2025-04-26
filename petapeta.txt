@@ -7,7 +7,7 @@ function addHighlight(parent, txt)
     billboard.Name = "HighlightBillboard"
     billboard.Adornee = parent
     billboard.Parent = parent
-    billboard.Size = UDim2.new(0, 10, 0, 10) 
+    billboard.Size = UDim2.new(4.8, 0, 4.5, 0) 
     billboard.StudsOffset = Vector3.new(0, 0, 0) 
     billboard.AlwaysOnTop = true
     billboard.MaxDistance = math.huge 
@@ -15,7 +15,7 @@ function addHighlight(parent, txt)
 
     local label = Instance.new("TextLabel")
     label.Parent = billboard
-    label.Size = UDim2.new(0.5, 0, 0.5, 0)
+    label.Size = UDim2.new(1, 0, 1, 0)
     label.BackgroundTransparency = 1
     label.Text = txt or "Label"
     if parent.Name == "Key" then
@@ -24,7 +24,7 @@ function addHighlight(parent, txt)
         label.TextColor3 = Color3.new(0.53, 0.81, 0.92)
 
     end
-    label.TextStrokeTransparency = 0.5
+    label.TextStrokeTransparency = 0.7
     label.TextScaled = true
     label.Font = Enum.Font.GothamBold
 
@@ -33,7 +33,6 @@ function addHighlight(parent, txt)
 
 end
 
-print("Loaded Peta Peta Hack by ZXXXCoder")
 local spawneditem = server:FindFirstChild("SpawnedItems")
 local enemy = workspace.Client.Enemy
 
@@ -61,7 +60,7 @@ print("gemec")
    for k,v in pairs(server.MapGenerated.Rooms:GetDescendants()) do
        if v.Name =="ExitKey" then
             if not v.Key:FindFirstChildOfClass("Highlight") then
-                addHighlight(v.Key,v.Name)
+                addHighlight(v.Key,"Key")
 
                 local a = v.Parent
            addHighlight(a,a.Name)
@@ -70,7 +69,7 @@ print("gemec")
          h.DepthMode = "AlwaysOnTop"
             end
            elseif string.find(v.Name,"Zeni") then
-         addHighlight(v,"Zeni")
+         addHighlight(v,v.Name)
         
        end
     end
@@ -80,7 +79,7 @@ function espKeys()
  for k,v in pairs(spawneditem:GetChildren()) do wait()
      if v:IsA("Model") then 
         if v.Name == "ExitKey" then
-            addHighlight(v.Key,v.Name)
+            addHighlight(v.Key,"Key")
             else
             addHighlight(v,v.Name)
         end
