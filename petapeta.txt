@@ -8,6 +8,11 @@ v.Value = true
 end
 end
 end
+
+task.spawn(function()
+wait(1)
+openallshelf()
+end)
 function addHighlight(parent, txt)
 
     local billboard = Instance.new("BillboardGui")
