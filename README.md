@@ -1,0 +1,90 @@
+local server = workspace.Server
+
+
+function addHighlight(parent, txt)
+
+    local billboard = Instance.new("BillboardGui")
+    billboard.Name = "HighlightBillboard"
+    billboard.Adornee = parent
+    billboard.Parent = parent
+    billboard.Size = UDim2.new(0, 45, 0, 35) 
+    billboard.StudsOffset = Vector3.new(0, 0, 0) 
+    billboard.AlwaysOnTop = true
+    billboard.MaxDistance = math.huge 
+
+
+    local label = Instance.new("TextLabel")
+    label.Parent = billboard
+    label.Size = UDim2.new(1, 0, 1, 0)
+    label.BackgroundTransparency = 1
+    label.Text = txt or "Label"
+    if parent.Name == "Key" then
+        label.TextColor3 = Color3.new(1, 1, 0)
+        else
+        label.TextColor3 = Color3.new(0.53, 0.81, 0.92)
+
+    end
+    label.TextStrokeTransparency = 0.5
+    label.TextScaled = true
+    label.Font = Enum.Font.GothamBold
+
+    local aspect = Instance.new("UIAspectRatioConstraint")
+    aspect.Parent = label
+
+end
+
+local spawneditem = server:FindFirstChild("SpawnedItems")
+local enemy = workspace.Client.Enemy
+
+task.spawn(function()
+
+if not enemy:FindFirstChild("ClientEnemy") then
+    repeat wait() until enemy:FindFirstChild("ClientEnemy")
+end 
+
+local obj = enemy:FindFirstChild("ClientEnemy")
+
+if obj:FindFirstChild("EnemyModel") then
+    local highlight = obj:FindFirstChild("EnemyModel").Highlight
+    highlight.Enabled = true
+end
+end)
+
+task.spawn(function()
+while wait() do
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 35 end
+end)
+task.spawn(function()
+print("gemec")
+    
+   for k,v in pairs(server.MapGenerated.Rooms:GetDescendants()) do
+       if v.Name =="ExitKey" then
+            if not v.Key:FindFirstChildOfClass("Highlight") then
+                addHighlight(v.Key,v.Name)
+
+                local a = v.Parent
+           addHighlight(a,a.Name)
+           local h= Instance.new("Highlight",a)
+         h.Adornee = a
+         h.DepthMode = "AlwaysOnTop"
+            end
+           elseif string.find(v.Name,"Zeni") then
+         addHighlight(v,v.Name)
+        
+       end
+    end
+end)
+
+function espKeys()
+ for k,v in pairs(spawneditem:GetChildren()) do wait()
+     if v:IsA("Model") then 
+        if v.Name == "ExitKey" then
+            addHighlight(v.Key,v.Name)
+            else
+            addHighlight(v,v.Name)
+        end
+     end
+end
+end
+
+espKeys()
