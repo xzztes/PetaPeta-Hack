@@ -1,8 +1,9 @@
 local server = workspace.Server
-
+print("Loading Peta-PETA HACK by ZXXXCoder")
 function openallshelf()
 for k,v in pairs(server.MapGenerated.Rooms:GetDescendants()) do
  if v.Name == "Open" and not v.Value and v:IsA("BoolValue") then
+wait()
 v.Value = true
 end
 end
