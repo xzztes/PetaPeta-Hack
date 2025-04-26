@@ -24,7 +24,7 @@ function addHighlight(parent, txt)
         label.TextColor3 = Color3.new(0.53, 0.81, 0.92)
 
     end
-    label.TextStrokeTransparency = 1
+    label.TextStrokeTransparency = 0.5
     label.TextScaled = true
     label.Font = Enum.Font.GothamBold
 
@@ -33,6 +33,7 @@ function addHighlight(parent, txt)
 
 end
 
+print("a")
 local spawneditem = server:FindFirstChild("SpawnedItems")
 local enemy = workspace.Client.Enemy
 
