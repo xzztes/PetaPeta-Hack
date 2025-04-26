@@ -23,13 +23,13 @@ function getAllZeni()
              if interact ~= nil then
                  local prompt = interact:FindFirstChildOfClass("ProximityPrompt")
                  if prompt ~= nil then 
-                     char:PivotTo(interact.CFrame)
                      prompt.HoldDuration = 0
-
+                     char:PivotTo(interact.CFrame)
+                   
                      if zeniamount.Value >= 150 then
                          break
                      end
-                     wait(0.6)
+                     wait(1)
                  end
              end
          end
@@ -41,7 +41,6 @@ end
 
 
 task.spawn(function()
-wait(1)
 openallshelf()
 getAllZeni()
 end)
