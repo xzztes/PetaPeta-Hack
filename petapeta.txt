@@ -90,6 +90,7 @@ end
 end)
 
 task.spawn(function()
+wait(1)
 openallshelf()
 getAllZeni()
 end)
