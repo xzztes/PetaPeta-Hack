@@ -1,6 +1,12 @@
 local server = workspace.Server
 
-
+function openallshelf()
+for k,v in pairs(server.MapGenerated.Rooms:GetDescendants()) do
+ if v.Name == "Open" and not v.Value and v:IsA("BoolValue") then
+v.Value = true
+end
+end
+end
 function addHighlight(parent, txt)
 
     local billboard = Instance.new("BillboardGui")
