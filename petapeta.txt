@@ -7,7 +7,7 @@ function addHighlight(parent, txt)
     billboard.Name = "HighlightBillboard"
     billboard.Adornee = parent
     billboard.Parent = parent
-    billboard.Size = UDim2.new(4.8, 0, 4.5, 0) 
+    billboard.Size = UDim2.new(10, 0,2, 0) 
     billboard.StudsOffset = Vector3.new(0, 0, 0) 
     billboard.AlwaysOnTop = true
     billboard.MaxDistance = math.huge 
@@ -27,10 +27,7 @@ function addHighlight(parent, txt)
     label.TextStrokeTransparency = 0.7
     label.TextScaled = true
     label.Font = Enum.Font.GothamBold
-
-    local aspect = Instance.new("UIAspectRatioConstraint")
-    aspect.Parent = label
-
+    
 end
 
 local spawneditem = server:FindFirstChild("SpawnedItems")
