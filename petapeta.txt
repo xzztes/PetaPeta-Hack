@@ -109,9 +109,7 @@ print("gemec")
 
                 local a = v.Parent
            --addHighlight(a,a.Name)
-           local h= Instance.new("Highlight",v.Key)
-         h.Adornee = v.Key
-         h.DepthMode = "AlwaysOnTop"
+           
             end
            elseif string.find(v.Name,"Zeni") then
              addHighlight(v,v.Name)
