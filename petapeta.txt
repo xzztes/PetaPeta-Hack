@@ -9,9 +9,41 @@ end
 end
 end
 
+local plr = game.Players.LocalPlayer
+local char = plr.Character or plr.CharacterAdded:Wait()
+
+local zeniamount = plr.PlayerGui.GameUI.ZeniUI.amount
+local all_zenis = {}
+function getAllZeni()
+
+    repeat wait()
+     for k,v in pairs(workspace:GetDescendants()) do
+         if v:IsA("Model") and string.find(v.Name,"Zeni") then
+             local interact=v:FindFirstChild("InteractPoint")
+             if interact ~= nil then
+                 local prompt = interact:FindFirstChildOfClass("ProximityPrompt")
+                 if prompt ~= nil then 
+                     char:PivotTo(interact.CFrame)
+                     prompt.HoldDuration = 0
+
+                     if zeniamount.Value >= 150 then
+                         break
+                     end
+                     wait(0.3)
+                 end
+             end
+         end
+         end
+     until zeniamount.Value >= 150
+     char:PivotTo(CFrame.new(workspace.school.safetyroom:GetPivot().Position))
+end
+
+
+
 task.spawn(function()
 wait(1)
 openallshelf()
+getAllZeni()
 end)
 function addHighlight(parent, txt)
 
