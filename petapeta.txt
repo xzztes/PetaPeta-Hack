@@ -23,7 +23,10 @@ function getAllZeni()
              if interact ~= nil then
                  local prompt = interact:FindFirstChildOfClass("ProximityPrompt")
                  if prompt ~= nil then 
-                     prompt.HoldDuration = 0
+                     local shards_event = prompt:FindFirstChildOfClass("RemoteEvent")
+                     if shards_event ~= nil then
+                       shards_event:FireServer()
+                        end
                      char:PivotTo(interact.CFrame)
                    
                      if zeniamount.Value >= 150 then
@@ -35,7 +38,7 @@ function getAllZeni()
          end
          end
      until zeniamount.Value >= 150
-     char:PivotTo(CFrame.new(-52.7756615, 4.89631271, 103.776787, -0.928744912, 8.18866155e-11, 0.370719433, -1.54405926e-12, 1, -2.24753952e-10, -0.370719433, -2.09311499e-10, -0.928744912))
+     --char:PivotTo(CFrame.new(-52.7756615, 4.89631271, 103.776787, -0.928744912, 8.18866155e-11, 0.370719433, -1.54405926e-12, 1, -2.24753952e-10, -0.370719433, -2.09311499e-10, -0.928744912))
 end
 
 
