@@ -42,7 +42,7 @@ function getAllZeni()
                      if zeniamount.Value >= 150 then
                          break
                      end
-                     wait(0.5)
+                     --wait(0.5)
                  end
              end
          end
