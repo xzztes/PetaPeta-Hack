@@ -3,7 +3,7 @@ print("Loading Peta-PETA HACK by ZXXXCoder")
 function openallshelf()
 for k,v in pairs(server.MapGenerated.Rooms:GetDescendants()) do
  if v.Name == "Open" and not v.Value and v:IsA("BoolValue") then
-wait()
+task.wait()
 v.Value = true
 end
 end
@@ -42,7 +42,7 @@ function getAllZeni()
                      if zeniamount.Value >= 150 then
                          break
                      end
-                     wait()
+                     wait(1)
                  end
              end
          end
