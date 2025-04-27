@@ -1,3 +1,39 @@
+local plr =game.Players.LocalPlayer
+local char = plr.Character or plr.CharacterAdded:Wait()
+
+local cframe = CFrame.new(7.64371109, 6.68140745, 80.9446487, -1, 0, 0, 0, 1, 0, 0, 0, -1)
+
+function automaticInteract()
+while wait() do
+    for k,v in pairs(workspace:GetDescendants()) do
+        if v.Name == "ExitKey" then
+            wait()  -- This causes an unnecessary delay for each ExitGate object found
+            if v:FindFirstChild("InteractPoint") then
+                v:FindFirstChild("InteractPoint"):FindFirstChildOfClass('ProximityPrompt'):InputHoldBegin()
+            end
+        end
+    end
+end
+
+end
+
+
+local function getKeys()
+  for k,v in pairs(workspace.Server:GetDescendants()) do
+  if v:IsA("Model") and v.Name=="ExitKey" then
+local interactP=v:FindFirstChild("InteractPoint")
+
+if char:FindFirstChild("ExitKey") then repeat wait() until not char:FindFirstChild('ExitKey') end
+local currentp = char:GetPivot()
+     char:PivotTo(v:GetPivot())
+     wait(2)
+     char:PivotTo(currentp)
+end
+end
+end
+
+
+
 local server = workspace.Server
 print("Loading Peta-PETA HACK by ZXXXCoder")
 function openallshelf()
@@ -101,6 +137,8 @@ end)
 task.spawn(function()
 openallshelf()
 getAllZeni()
+task.spawn(automaticInteract)
+getKeys()
 end)
 
 task.spawn(function()
