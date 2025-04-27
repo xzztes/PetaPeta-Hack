@@ -42,7 +42,7 @@ function getAllZeni()
                      if zeniamount.Value >= 150 then
                          break
                      end
-                     --wait(0.5)
+     
                  end
              end
          end
@@ -68,6 +68,7 @@ function addHighlight(parent, txt)
     local label = Instance.new("TextLabel")
     label.Parent = billboard
     label.Size = UDim2.new(1, 0, 1, 0)
+    label.FontFace = Enu.FontWeight.Light
     label.BackgroundTransparency = 1
     label.Text = txt or "Label"
     if parent.Name == "Key" then
@@ -78,7 +79,6 @@ function addHighlight(parent, txt)
     end
     label.TextStrokeTransparency = 0
     label.TextScaled = true
-    label.Font = Enum.Font.GothamBold
     
 end
 
